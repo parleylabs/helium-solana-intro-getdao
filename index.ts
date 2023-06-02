@@ -9,9 +9,11 @@ import {
 import { HNT_MINT } from "@helium/spl-utils";
 import { daoKey, subDaoKey } from "@helium/helium-sub-daos-sdk";
 
+// This pulls from the spl-utils default mint address or if you put one in your environment you can test with a different set of contracts.
 const HNT = process.env.HNT_MINT ? new PublicKey(process.env.HNT_MINT) : HNT_MINT;
 const DAO = daoKey(HNT)[0];
 
+// we're just using the public (rate limited) solana RPC here
 anchor.setProvider(anchor.AnchorProvider.local("https://api.mainnet-beta.solana.com"));
  
 export async function getDaoAccount() {
