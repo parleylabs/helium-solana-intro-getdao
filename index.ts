@@ -13,7 +13,7 @@ const HNT = process.env.HNT_MINT ? new PublicKey(process.env.HNT_MINT) : HNT_MIN
 const DAO = daoKey(HNT)[0];
 
 anchor.setProvider(anchor.AnchorProvider.local("https://api.mainnet-beta.solana.com"));
-
+ 
 export async function getDaoAccount() {
     const provider = anchor.getProvider() as anchor.AnchorProvider;
     const program = await initSubDaos(provider);
