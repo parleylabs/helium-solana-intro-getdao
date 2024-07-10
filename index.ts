@@ -44,7 +44,8 @@ export async function getDaoAccount() {
 // getDaoAccount();
 export async function getHotspotDetail() {
     const provider = anchor.getProvider() as anchor.AnchorProvider;
-    const hotspotAddress = "11LoEbxevPnuoFLoiX3DCFWk1Fub29GXLr7UgzYh8eXDWU3ygGE"
+    // Put entity_key_str here (from the foundations api data)
+    const hotspotAddress = "112jkcPTa1cqAcTjsYyGr7ikmhnhoJdZgcD1Ho2dmSeCcAyNZwVw"
     const hemProgram = await initHem(provider)
 
     // Get hotspot details from the solona blockchain using public address of hotspot
@@ -54,12 +55,12 @@ export async function getHotspotDetail() {
         type: 'IOT',
     })
 
-    console.log(hotspotDetails?.location);
+    console.log(hotspotDetails);
 
     // Your H3 hex string
     const location = hotspotDetails?.location;
 
-    // Specify the desired resolution (e.g., 12 for higher precision)
+    // Specify required resolution (e.g., 12 for solana data)
     const resolution = 12;
 
     // Convert H3 hex to lat/lng (assuming resolution 0)
